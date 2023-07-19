@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  context: MyText
+  time: 2023-06-26 18:11:45
+  img_path: MyString
+  thre: one
+
+two:
+  name: MyString
+  context: MyText
+  time: 2023-06-26 18:11:45
+  img_path: MyString
+  thre: two

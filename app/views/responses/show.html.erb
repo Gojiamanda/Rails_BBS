@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @response %>
+
+<% thre = Thre.find(@response.thre_id) %>
+
+<div>
+  <%= link_to "レスを修正する", edit_response_path(@response) %> |
+  <%= link_to "スレッドに戻る", thre_path(@response.thre_id) %> |
+  <%= link_to "掲示板に戻る", board_path(thre.board_id) %>
+  
+  <%= button_to "削除", @response, method: :delete %>
+</div>

@@ -1,0 +1,45 @@
+<%= form_with(model: thre) do |form| %>
+  <% if thre.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(thre.errors.count, "error") %> prohibited this thre from being saved:</h2>
+
+      <ul>
+        <% thre.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "form">
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class = "form">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class = "form">
+    <%= form.label :context, style: "display: block" %>
+    <%= form.text_area :context %>
+  </div>
+
+  <div class = "form">
+    <%= form.hidden_field :time, :value => DateTime.now %>
+  </div>
+
+  <div class = "form">
+    <%= form.label :img_path, style: "display: block" %>
+    <%= form.file_field :img_path, accept: 'image/jpeg,image/gif,image/png' %>
+  </div>
+
+  <div  class = "form">
+    <%= form.hidden_field :board_id, :value => params[:boardId] %>
+  </div>
+
+  <div class = "submit_button">
+    <%= form.submit %>
+  </div>
+<% end %>

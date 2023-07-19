@@ -1,0 +1,57 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class = "headline">掲示板一覧</h1>
+<hr>
+
+<div class = "board_index">
+
+  <div class = "board_form" align = "left">
+
+  <%= form_for(@board) do |form| %>
+    <% if @board.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+        <ul>
+          <% @board.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :新しい掲示板を作成する, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class = "submit_button">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+  </div>
+
+
+  <% i = 0 %>
+  <% l = @boards.length %>
+  <% newest_board = Board.find(l + 1) %>
+  <p class = "new_board">新しい掲示板 <%= link_to newest_board.name, newest_board %>
+
+  <div id="boards">
+
+    <table class = "board_table" align = "center">
+      <% @boards.each do |board| %>
+        <% if i % 7 == 0 then %>
+          <td>
+        <% end %>
+        <p><%= link_to board.name, board %></p>
+        <% if ((i + 1) % 7 == 0) || (i == l - 1) then %>
+          </td>
+        <% end %>
+        <% i += 1 %>
+      <% end %>
+    </table>
+  </div>
+
+</div>

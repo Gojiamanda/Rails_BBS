@@ -1,0 +1,38 @@
+<%= form_with(model: response) do |form| %>
+  <% if response.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(response.errors.count, "error") %> prohibited this response from being saved:</h2>
+
+      <ul>
+        <% response.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "form">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class = "form">
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :context %>
+  </div>
+
+  <div class = "form">
+    <%= form.hidden_field :time, :value => DateTime.now %>
+  </div>
+
+  <div class = "form">
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :img_path, accept: 'image/jpeg,image/gif,image/png' %>
+  </div>
+
+  <%= form.hidden_field :thre_id, :value => params[:threadId] %>
+
+  <div class = "form">
+    <%= form.submit %>
+  </div>
+<% end %>

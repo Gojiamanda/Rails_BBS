@@ -1,0 +1,28 @@
+<div id="<%= dom_id thre %>" class = "thread">
+  <div class = "name">
+    <% if(thre.name == "" || thre.name == nil) then %>
+      <font size = "1.5px", color = "blue">名無し</font>
+    <% else %>
+      <div class = "named"><%= thre.name %></div>
+    <% end %>
+  </div>
+
+  <p class="time">
+    <%= l thre.time %>
+  </p>
+
+  <p class="title">
+    <strong><%= thre.title %></strong>
+  </p>
+
+  <p class="img">
+    <% if thre.img_path? %>
+      <%= image_tag thre.img_path.url, class: 'img' %>
+    <% end %>
+  </p>
+
+  <p class = "content">
+    <%= thre.context %>
+  </p>
+  
+</div>

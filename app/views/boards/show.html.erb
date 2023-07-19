@@ -1,0 +1,75 @@
+<p style="color: green"><%= notice %></p>
+
+<h2 class = "headline2"><%= @board.name %> スレッド一覧</h2>
+
+<p>
+  <%= link_to '新順', board_path(latest: "true") %>
+  |<%= link_to '古順', board_path(old: "true") %>
+  |<%= link_to '多順', board_path(many: "true") %>
+  |<%= link_to '少順', board_path(few: "true") %>
+</p>
+
+<div class = "board_threads_index">
+
+  <div class = "board_threadform">
+  <%= form_for(@thre) do |form| %>
+    <% if @thre.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@thre.errors.count, "error") %> prohibited this thre from being saved:</h2>
+
+        <ul>
+          <% @thre.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class = "form">
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class = "form">
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class = "form">
+      <%= form.label :context, style: "display: block" %>
+      <%= form.text_area :context %>
+    </div>
+
+    <div class = "form">
+      <%= form.hidden_field :time, :value => DateTime.now %>
+    </div>
+
+    <div class = "form">
+      <%= form.label :img_path, style: "display: block" %>
+      <%= form.file_field :img_path, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+    <%= form.hidden_field :board_id, :value => @board.id %>
+
+    <div class = "submit_button">
+      <%= form.submit %>
+    </div>
+  </div>
+
+  <div class = "board_threads">
+    <% @board.thres.each do |thre| %>
+      <div class = "board_thread">
+        <p><%= link_to thre.title, thre %> (<%= thre.response.length %>)</p>
+        <font size = 2 class = "time"><%= l thre.time %></font>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+<% end %>
+
+<div class = "back_button">
+  <%= link_to "掲示板を修正", edit_board_path(@board) %> |
+  <%= link_to "ホームに戻る", boards_path %>
+  <%= button_to "この掲示板を削除", @board, method: :delete %>
+</div>

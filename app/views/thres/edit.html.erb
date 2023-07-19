@@ -1,0 +1,10 @@
+<h1>Editing thread</h1>
+
+<%= render "form", thre: @thre %>
+
+<br>
+
+<div>
+  <%= link_to "スレッドに戻る", @thre %> |
+  <%= link_to "掲示板に戻る", board_path(@thre.board_id) %> |
+</div>

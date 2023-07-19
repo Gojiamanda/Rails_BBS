@@ -1,0 +1,24 @@
+<div id="<%= dom_id response %>" class = "response">
+  <div class = "name">
+    <% if(response.name == "" || response.name == nil) then %>
+      <font size = "1.5px", color = "blue">名無し</font>
+    <% else %>
+      <div class = "named"><%= response.name %></div>
+    <% end %>
+  </div>
+
+  <p class = "time">
+    <%= l response.time %>
+  </p>
+
+  <p class = "content">
+    <%= response.context %>
+  </p>
+
+  <p class = "img">
+    <% if response.img_path? %>
+      <%= image_tag response.img_path.url, class: 'img' %>
+    <% end %>
+  </p>
+
+</div>

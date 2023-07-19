@@ -1,0 +1,18 @@
+.thread_response_form{
+  width: 20%;
+  float: left;
+  position: fixed;
+}
+
+.thread_responses{
+  float: right;
+  width: 78%;
+}
+
+.thread_response{
+  width: 100%;
+  margin: 8px auto;
+	border-radius: 24px;
+  padding-left: 0.5em;
+  padding-top: 0.2em;
+}

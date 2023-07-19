@@ -1,0 +1,19 @@
+<p><%= flash.alert %></p>
+ 
+<%= form_with(uri: login_path) do |form| %>
+ 
+
+  <div>
+    <%= form.label :loginname, style: "display: block" %>
+    <%= form.text_field :loginname %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit :Login%>
+  </div>
+<% end %>

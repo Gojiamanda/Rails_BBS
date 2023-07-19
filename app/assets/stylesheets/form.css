@@ -1,0 +1,52 @@
+.thread{
+  margin: 5px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.response{
+  width: 90%;
+  margin: 5px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.name{
+  height: 5%;
+  width: 20%;
+  margin: 1px 5px;
+  text-align: left;
+}
+
+.named{
+  font-size: 13px;
+  color: green;
+}
+
+.time{
+  height: 5%;
+  width: 70%;
+  margin: 1px 5px;
+  color: gray;
+  font-size: 10px;
+  text-align: right;
+}
+
+.title{
+  height: 10%;
+  width: 100%;
+}
+
+.content{
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+  font-family:  "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+}
+
+img.img {
+  max-width: 100px;
+  max-height: 200px;
+}
